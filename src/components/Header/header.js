@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Jumbotron,Row,Col,Image } from 'react-bootstrap';
 import "./header.css";
 import {ReactComponent as Link} from '../../assets/link.svg'
@@ -8,7 +8,7 @@ import {ReactComponent as Location} from '../../assets/location.svg'
 import {ReactComponent as Github} from '../../assets/github.svg'
 
 const Header = () => {
-    const [showimage, setShowImage] = useState('https://source.unsplash.com/user/c_v_r')
+    const showimage = 'https://source.unsplash.com/user/c_v_r'
 
     return (
         <Jumbotron className="px-5">

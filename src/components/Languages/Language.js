@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Row, ProgressBar } from "react-bootstrap";
 
 const Language = () => {
-  const [skills, setSkills] = useState([
-    { lang: "JavaScript", percent: 60 },
-    { lang: "HTML", percent: 90 },
-    { lang: "CSS", percent: 50 },
-    { lang: "C++", percent: 30 },
-    { lang: "C", percent: 50 },
-  ]);
+  // const [skills, setSkills] = useState();
+  const skills = [
+      { lang: "JavaScript", percent: 60 },
+      { lang: "HTML", percent: 90 },
+      { lang: "CSS", percent: 50 },
+      { lang: "C++", percent: 30 },
+      { lang: "C", percent: 50 },
+    ]
 
   return (
     <Col xs={6}>
