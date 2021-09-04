@@ -20,7 +20,7 @@ export const Home = () => {
                         <Form.Control  type="username" placeholder="user-id" />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Check type="checkbox" label="Include personal details" />
+                        <Form.Check type="checkbox" label="Include additional details" />
                     </Form.Group>
                     <Button variant="outline-dark" type="submit" >
                         Generate CV
