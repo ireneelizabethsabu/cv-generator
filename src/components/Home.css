@@ -1,0 +1,26 @@
+/* form{
+    justify-content: center !important;
+    padding : 100px
+} */
+.row{ 
+    margin-top: 250px;
+}
+.form-control{
+    width: fit-content !important;
+}
+
+.title {
+    font-size: 2.3rem;
+    font-weight: 500;
+}
+#head {
+    color: #253c69;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.btn{
+    background-color: #253c69 !important;
+    color: #ffffff !important;
+}
+
