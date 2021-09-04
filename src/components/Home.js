@@ -1,11 +1,14 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Header from "./Header/header";
+import Language from "./Languages/Language";
 
 export const Home = () => {
     return(
-        <div>
+        <Container fluid>
             <Header/>
-        </div>
+            <Language/>
+        </Container>
     );
 }
 
