@@ -13,7 +13,7 @@ export const Home = () => {
     
     return(
         <Container fluid >
-            <Row xs={1} sm={1} md={2} >
+            <Row xs={1} sm={1} md={2} className="home-row">
                 <Col className="text-center">
                 <h1 className="title">Get your customized cv with <br /><span id="head">CV-GENERATOR</span></h1>
                 <p className="lead">
@@ -25,7 +25,7 @@ export const Home = () => {
                 <Form>
                     <Form.Group>
                         <Form.Label className="text-center"> Enter Github user id</Form.Label>
-                        <Form.Control  type="username" placeholder="user-id" value={id} onChange={handleChange}/>
+                        <Form.Control className="id" type="username" placeholder="user-id" value={id} onChange={handleChange}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Check type="checkbox" label="Include additional details" />
