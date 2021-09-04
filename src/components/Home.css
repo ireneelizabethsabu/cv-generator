@@ -1,11 +1,7 @@
-/* form{
-    justify-content: center !important;
-    padding : 100px
-} */
-.row{ 
+.home-row{ 
     margin-top: 250px;
 }
-.form-control{
+.id{
     width: fit-content !important;
 }
 
