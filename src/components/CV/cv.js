@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { getUsers } from "../../api";
+import { getUsers ,getRepos } from "../../api";
 import Header from "../Header/header";
 import Language from "../Languages/Language";
 import Organisation from '../Organisation/Organisation'
+import Projects from "../Projects/Projects";
 
 const CV=() => {
     const [data, setData] = useState(null)
@@ -15,6 +16,7 @@ const CV=() => {
             setData(res.data)
             console.log(res.data)
         }).catch(err => console.log(err))
+        
     }, [id])
     
     return(
@@ -22,6 +24,7 @@ const CV=() => {
             <Header data={data}/>
             <Language id={id}/>
             <Organisation id={id}/>
+            <Projects id={id}/>
         </Container>
     )
 }

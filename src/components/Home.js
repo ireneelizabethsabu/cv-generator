@@ -8,8 +8,8 @@ export const Home = () => {
     const history =  useHistory();
     const handleChange =(e) => {
         setId(e.target.value);
-    } 
-    
+    }
+   
     return(
         <Container fluid >
             <Row xs={1} sm={1} md={2} className="home-row">
@@ -24,10 +24,15 @@ export const Home = () => {
                 <Form>
                     <Form.Group>
                         <Form.Label className="text-center"> Enter Github user id</Form.Label>
-                        <Form.Control className="id" type="username" placeholder="user-id" value={id} onChange={handleChange} required/>
+                        <Form.Control 
+                            className="id" 
+                            type="username" 
+                            placeholder="user-id" 
+                            value={id} 
+                            onChange={handleChange} required/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Check type="checkbox" label="Include additional details" />
+                        <Form.Check type="checkbox" label="Include github avatar"/>
                     </Form.Group>
                     <Button variant="outline-dark" type="submit" onClick={() => { history.push(`/cv/${id}`)}}>
                         Generate CV

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import { Col,Image,Row} from "react-bootstrap";
 import { getOrganisation } from "../../api";
-import 'react-vertical-timeline-component/style.min.css';
+//import 'react-vertical-timeline-component/style.min.css';
 
 
 const Organisation = ({id}) => {
