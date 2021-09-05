@@ -39,23 +39,34 @@ const sortByStar = (a,b) => {
     else return 1;
 }
 
-const getRepos = async (nam) => {
-    let repo=[];
-    try{
-        const repos= await axios.get("https://api.github.com/users/"+nam+"/repos");
-        repos.data.map(async (ele)=>{
-            const lang = await axios.get(ele.languages_url);
-            repo.push({
-                name:ele.full_name,
-                lang: lang.data,
-                stargazer_count:ele.stargazers_count
-            });
-        })
-        return repo.sort(sortByStar);
-    }
-    catch(err){
+export const getOrganisation = async (id) => {
+  try{
+    return await axios.get(`https://api.github.com/users/${id}/orgs`);
+  }catch(err){
       console.log("Repos API call not complete");  
-    }
+  }
 };
 
+const getRepos = async (nam) => {
+  try{
+    return await axios.get("https://api.github.com/users/"+nam+"/repos");
+  }catch(err){
+      console.log("Repos API call not complete");  
+  }
+};
+
+// export const getOauth = (code) => {
+//   if (code) {
+//     axios.get(`https://github.com/login/oauth/access_token`,{
+//       params: {
+//         code: code,
+//         client_secret: process.env.REACT_APP_CLIENT_SECRET,
+//         client_id: process.env.REACT_APP_CLIENT_ID,
+//         redirect_uri: "http://localhost:3000"
+//       }
+//     }
+//     )
+//       .then(response => response.json())
+//   }
+// }
 export { getUsers, getRepos, getOrgs };

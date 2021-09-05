@@ -1,29 +1,19 @@
-import React from "react";
-import { Col, Row, ProgressBar } from "react-bootstrap";
+import React,{useState} from "react";
+import { Col, Row } from "react-bootstrap";
 
 const Language = () => {
-  // const [skills, setSkills] = useState();
-  const skills = [
-      { lang: "JavaScript", percent: 60 },
-      { lang: "HTML", percent: 90 },
-      { lang: "CSS", percent: 50 },
-      { lang: "C++", percent: 30 },
-      { lang: "C", percent: 50 },
-    ]
+  const [skills, setSkills] = useState(['java','javascript','obj','ruby','c++','html','vue','typescript','coffeescript','php']);
 
   return (
     <Col xs={6}>
       <div className="font_m mb-3">SKILLS</div>
-      {skills.map((skill, index) => (
-        <Row key={index}>
-          <Col xs="4" className="text-right">
-            {skill.lang}
+      <Row >
+      {skills && skills.map((skill, index) => (
+          <Col key={index}>
+            <img src={`/${skill}.svg`} alt="skill-badge"/>
           </Col>
-          <Col>
-            <ProgressBar variant="info" now={skill.percent} />
-          </Col>
-        </Row>
       ))}
+      </Row>
     </Col>
   );
 };

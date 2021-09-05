@@ -1,21 +1,34 @@
-import React from "react";
-import { Col} from "react-bootstrap";
+import React,{useState,useEffect} from "react";
+import { Col,Image,Row} from "react-bootstrap";
+import { getOrganisation } from "../../api";
+import 'react-vertical-timeline-component/style.min.css';
 
-const Organisation = () => {
-  const org = [];
+
+const Organisation = ({id}) => {
+  const [org, setOrg] = useState(null)
+
+  useEffect(() => {
+    getOrganisation(id).then(res => {
+        console.log(res.data)
+        setOrg(res.data)
+    }).catch(err => console.log(err))
+  }, [id])
 
   return (
     <Col>
       <div className="font_m mb-3">
         ORGANISATIONS{" "}
       </div>
-      <Col className="my-4">
+      <Row className="my-4">
             {org && (org.map((element,index) => 
-                <Col key={index}>
-                    <div className="font_m">{element.org}</div>
+                <Col key={index} xs="2">
+                    <div className="d-flex justify-content-center">
+                      <Image src={element.avatar_url || ''} width="90px" height="90px" roundedCircle />
+                    </div>
+                    <div className="text-center my-2">{element.login.charAt(0).toUpperCase() + element.login.slice(1)}</div>
                 </Col>
             ))}
-        </Col>
+        </Row>
     </Col>
   );
 };

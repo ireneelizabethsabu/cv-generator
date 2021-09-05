@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
 import { useHistory } from "react-router-dom";
@@ -8,8 +8,7 @@ export const Home = () => {
     const history =  useHistory();
     const handleChange =(e) => {
         setId(e.target.value);
-    }
-   
+    } 
     
     return(
         <Container fluid >
@@ -25,7 +24,7 @@ export const Home = () => {
                 <Form>
                     <Form.Group>
                         <Form.Label className="text-center"> Enter Github user id</Form.Label>
-                        <Form.Control className="id" type="username" placeholder="user-id" value={id} onChange={handleChange}/>
+                        <Form.Control className="id" type="username" placeholder="user-id" value={id} onChange={handleChange} required/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Check type="checkbox" label="Include additional details" />
