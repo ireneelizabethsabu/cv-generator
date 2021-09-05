@@ -19,11 +19,11 @@ const Organisation = ({id}) => {
       <div className="font_m mb-3">
         ORGANISATIONS{" "}
       </div>
-      <Row className="my-4">
+      <Row className="my-4" sm={8} >
             {org && (org.map((element,index) => 
-                <Col key={index} xs="2">
+                <Col key={index}>
                     <div className="d-flex justify-content-center">
-                      <Image src={element.avatar_url || ''} width="90px" height="90px" roundedCircle />
+                      <Image src={element.avatar_url || ''} width="50" height="50" roundedCircle />
                     </div>
                     <div className="text-center my-2">{element.login.charAt(0).toUpperCase() + element.login.slice(1)}</div>
                 </Col>

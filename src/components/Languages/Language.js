@@ -5,7 +5,7 @@ const Language = () => {
   const [skills, setSkills] = useState(['java','javascript','obj','ruby','c++','html','vue','typescript','coffeescript','php']);
 
   return (
-    <Col xs={6}>
+    <Col>
       <div className="font_m mb-3">SKILLS</div>
       <Row >
       {skills && skills.map((skill, index) => (

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container,Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { getUsers ,getRepos } from "../../api";
+import { getUsers } from "../../api";
 import Header from "../Header/header";
 import Language from "../Languages/Language";
 import Organisation from '../Organisation/Organisation'
@@ -22,9 +22,15 @@ const CV=() => {
     return(
         data && <Container fluid className="my-3">
             <Header data={data}/>
-            <Language id={id}/>
-            <Organisation id={id}/>
-            <Projects id={id}/>
+            <Row>
+                <Col>
+                    <Organisation id={id}/>
+                    <Language id={id}/>
+                </Col>
+                <Col>
+                    <Projects id={id}/>
+                </Col>
+            </Row>            
         </Container>
     )
 }
