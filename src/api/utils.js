@@ -1,34 +1,29 @@
-// import { getRepos } from "./index";
+import axios from "axios";
+import { getRepos } from "./index";
 
-// const langPercent = (username) => {
-//   let languages = [];
-//   let totalMB = 0;
-//   let no = 0;
-//   getRepos(username).then((repos) => {
-//     {
-//       repos.map((repo) => {
-//         if (Object.entries(repo.lang).length !== 0) {
-//           Object.keys(repo.lang).map((ele) => {
-//             if (!(ele in languages)) {
-//               languages[ele] = repo.lang[ele] / 1024;
+const langPercent = async (username) => {
+  let no = 0;
+  const repos = await getRepos(username);
 
-//               totalMB += repo.lang[ele] / 1024;
-//             } else {
-//               languages[ele] += repo.lang[ele] / 1024;
-//               totalMB += repo.lang[ele] / 1024;
-//             }
-//           });
-//         }
-//       });
+  let languages = [];
+  var totalMB = 0;
+  repos.data.map(async (repo) => {
+    const lang = await axios.get(repo.languages_url)
+    if (Object.entries(lang.data).length !== 0) {
+        Object.keys(lang.data).map((ele) => {
+            const found = languages.some(el => el.lang === ele);
+            if (!found) languages.push({ lang: ele, percent: lang.data[ele] });
+            else {
+                languages.find(element => element.lang===ele).percent+=lang.data[ele]
+            }
+            totalMB = totalMB + lang.data[ele];
+            //console.log(totalMB)
+        });
+    }
+  });
+  
+  console.log(languages);
+  return languages;
+};
 
-//       Object.keys(languages).map((lang) => {
-//         languages[lang] *= 100 / totalMB;
-//         no += languages[lang];
-//       });
-//       console.log(no);
-//     }
-//   });
-//   console.log(languages);
-// };
-
-// export { langPercent };
+export { langPercent };

@@ -9,7 +9,6 @@ const Organisation = ({id}) => {
 
   useEffect(() => {
     getOrganisation(id).then(res => {
-        console.log(res.data)
         setOrg(res.data)
     }).catch(err => console.log(err))
   }, [id])
