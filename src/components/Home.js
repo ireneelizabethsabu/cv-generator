@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
 import { useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ export const Home = () => {
     const handleChange =(e) => {
         setId(e.target.value);
     }
-        
+   
     return(
         <Container fluid >
             <Row xs={1} sm={1} md={2} className="home-row">
