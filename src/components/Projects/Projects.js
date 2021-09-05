@@ -4,11 +4,11 @@ import { getRepos } from "../../api";
 import './Projects.css';
 
 const Projects = ({id}) => {
-    const [repo,setRepo] = useState(null) 
+    const [repo,setRepo] = useState([]) 
     useEffect(() => {
         getRepos(id).then(res => {
-            setRepo(res)
-            console.log(res)
+            setRepo(res.data)
+            console.log(res.data)
         }).catch(err => console.log(err))
     }, [id])
     return(

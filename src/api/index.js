@@ -41,22 +41,22 @@ const sortByStar = (a,b) => {
 
 const getRepos = async (nam) => {
     try{
-        let repo=[];
-        const repos= await axios.get("https://api.github.com/users/"+nam+"/repos");
-        repos.data.map( async (ele)=>{
-            if(!ele.fork){
-                const lang = await axios.get(ele.languages_url);
-                repo.push({
-                name:ele.full_name,
-                lang:lang.data,
-                stargazer_count: parseInt(ele.stargazers_count),
-                deployed : ele.homepage,
-                description : ele.description
-                });
-            }
-        })
+        //let repo=[];
+        return await axios.get("https://api.github.com/users/"+nam+"/repos");
+        // repos.data.map( async (ele)=>{
+        //     if(!ele.fork){
+        //         //const lang = await axios.get(ele.languages_url);
+        //         repo.push({
+        //         name:ele.full_name,
+        //         lang:ele.language,
+        //         stargazer_count: parseInt(ele.stargazers_count),
+        //         deployed : ele.homepage,
+        //         description : ele.description
+        //         });
+        //     }
+        // })
         // console.log(repo.sort(sortByStar))
-        return repo.sort(sortByStar);
+        //return repo.sort(sortByStar);
     }
     catch(err){
       console.log("Repos API call not complete");  
