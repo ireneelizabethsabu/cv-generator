@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useState,  useEffect } from "react";
 import React,{useState,useEffect} from "react";
-import { getUsers } from "../../api";
+import { getUsers ,getRepos } from "../../api";
 import Header from "../Header/header";
 import Language from "../Languages/Language";
 import Organisation from '../Organisation/Organisation'
@@ -15,14 +14,14 @@ const CV=() => {
         getUsers(id).then(res => {
             setData(res.data)
         }).catch(err => console.log(err))
+        
     }, [id])
-
     return(
         <>
             <Header data={data}/>
             <Language/>
             <Organisation/>
-            <Projects/>
+            <Projects id = {id}/>
         </>
     )
 }

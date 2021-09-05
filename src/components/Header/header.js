@@ -9,7 +9,6 @@ import {ReactComponent as Github} from '../../assets/github.svg'
 
 const Header = ({data}) => {
     const showimage = data;
-    console.log(data)
     return (
         data && <Jumbotron className="px-5">
             <Row >

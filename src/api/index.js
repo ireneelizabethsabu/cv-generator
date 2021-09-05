@@ -8,8 +8,6 @@ const getUsers = async (nam) => {
   }
 };
 
-<<<<<<< HEAD
-=======
 const getOrgs = async (nam) => {
   let organization = [];
   try {
@@ -33,7 +31,6 @@ const getOrgs = async (nam) => {
   }
 };
 
->>>>>>> master
 const sortByStar = (a,b) => {
     if(a.stargazer_count > b.stargazer_count)
         return -1;
@@ -43,25 +40,22 @@ const sortByStar = (a,b) => {
 }
 
 const getRepos = async (nam) => {
-    let repo=[];
     try{
+        let repo=[];
         const repos= await axios.get("https://api.github.com/users/"+nam+"/repos");
-        repos.data.map(async (ele)=>{
-            const lang = await axios.get(ele.languages_url);
-            repo.push({
-<<<<<<< HEAD
-            name:ele.full_name,
-            lang:lang.data,
-            stargazer_count: parseInt(ele.stargazers_count),
-            deployed : ele.homepage,
-            description : ele.description
-=======
+        repos.data.map( async (ele)=>{
+            if(!ele.fork){
+                const lang = await axios.get(ele.languages_url);
+                repo.push({
                 name:ele.full_name,
-                lang: lang.data,
-                stargazer_count:ele.stargazers_count
->>>>>>> master
-            });
+                lang:lang.data,
+                stargazer_count: parseInt(ele.stargazers_count),
+                deployed : ele.homepage,
+                description : ele.description
+                });
+            }
         })
+        // console.log(repo.sort(sortByStar))
         return repo.sort(sortByStar);
     }
     catch(err){

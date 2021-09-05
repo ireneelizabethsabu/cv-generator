@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
-import { getRepos } from "../api";
 import { useHistory } from "react-router-dom";
 
 export const Home = () => {
