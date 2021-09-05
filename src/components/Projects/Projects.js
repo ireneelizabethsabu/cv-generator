@@ -1,44 +1,41 @@
 import React, { useState, useEffect } from "react";
-import {Image,Row,Col, Container} from 'react-bootstrap';
-import { getRepos } from "../../api";
+import {Image,Row,Col, Card} from 'react-bootstrap';
+import { getRepos,sortByStar } from "../../api";
 import './Projects.css';
+import icon from '../../assets/project.png';
 
 const Projects = ({id}) => {
     const [repo,setRepo] = useState([]) 
     useEffect(() => {
         getRepos(id).then(res => {
-            setRepo(res.data)
-            console.log(res.data)
+            let rep = res.data.sort(sortByStar)
+            setRepo(rep.filter((el)=>
+               {
+                return el.fork === false &&
+                el.language !== null
+               }
+            ).slice(0,5))
         }).catch(err => console.log(err))
     }, [id])
+
     return(
-        <>
-        {repo && <Col xs={6}>
+        <Col>
         <div className="font_m mb-3">PROJECTS</div>
-        <Row>
-            <Col className="d-flex pt-2 px-0" >
-            <Image  className='icon' src='https://source.unsplash.com/user/c_v_r' roundedCircle/>
-            {/* </Col>
-            <Col > */}
-            {repo[0] && <div className='font_s'> 
-                {repo[0].name || 'Repo-1'}
-            </div> }
-            </Col>
-        </Row> 
-        {repo[0] && repo[0].homepage && <a className ="font_s" href = {repo[0].homepage}> Project Link</a>}
-        {repo[0] && repo[0].lang && <p className='font_m'>Tech Stack : {repo[0].lang} </p> } 
-        {/* <Image src='https://source.unsplash.com/user/c_v_r'roundedCircle className='icon'/>
-        <div className='font-l'>
-            {repo[1].name}
-        </div>
-        <p className='font-m'>{repo[1].lang}</p>
-        <Image src='https://source.unsplash.com/user/c_v_r' roundedCircle className='icon'/>
-        <div className='font-l'>
-            {repo[2].name}
-        </div>
-        <p className='font-m'>Tech Stack : {repo[2].lang}</p> */}
-        </Col> }
-        </>
+        {repo.map((project, index) => (
+            <Card key={index}>
+            {/* <Card.Img variant="top" src={icon} /> */}
+            <Card.Body>
+              <Card.Title> <Card.Img  src={icon} /> {project.name || 'Repo-1'}</Card.Title>
+              <Card.Text>
+              {project.description}<br/>
+              {project.homepage && <a  href = {project.homepage}> Project Link : {project.homepage}</a>}<br/>
+              {project.html_url && <a  href = {project.html_url}> Link to Code: {project.html_url}</a>}<br/>
+              Tech Stack : {project.language}
+              </Card.Text>
+            </Card.Body>
+            </Card>
+        ))}     
+        </Col>
     )  
 }
 

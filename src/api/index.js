@@ -32,9 +32,9 @@ const getOrgs = async (nam) => {
 };
 
 const sortByStar = (a,b) => {
-    if(a.stargazer_count > b.stargazer_count)
+    if(a.stargazers_count > b.stargazers_count)
         return -1;
-    else if(a.stargazer_count === b.stargazer_count)
+    else if(a.stargazers_count === b.stargazers_count)
         return 0;
     else return 1;
 }
@@ -63,4 +63,4 @@ const getRepos = async (nam) => {
     }
 };
 
-export { getUsers, getRepos, getOrgs };
+export { getUsers, getRepos, getOrgs, sortByStar };
