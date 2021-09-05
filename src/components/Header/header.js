@@ -7,24 +7,24 @@ import {ReactComponent as Twitter} from '../../assets/twitter.svg'
 import {ReactComponent as Location} from '../../assets/location.svg'
 import {ReactComponent as Github} from '../../assets/github.svg'
 
-const Header = () => {
-    const showimage = 'https://source.unsplash.com/user/c_v_r'
-
+const Header = ({data}) => {
+    const showimage = data;
+    console.log(data)
     return (
-        <Jumbotron className="px-5">
+        data && <Jumbotron className="px-5">
             <Row >
-                {showimage && <span className="mx-3">
-                    <Image src={showimage} width="180px" height="171px" roundedCircle />
+                {data && <span className="mx-3">
+                    <Image src={data.avatar_url || ''} width="180px" height="171px" roundedCircle />
                 </span> }
                 <Col >
                     <div className={`${showimage === null ? 'text-center' : '' }
-                    font_xxl mx-1 `}>NAME IN CAPITALS</div>
+                    font_xxl mx-1 `}>{data.name || data.login}</div>
                     <Col className={`${showimage === null ? 'justify-content-center' : '' }
-                    d-flex pt-2 `}>
-                        <span className="mx-1"><Twitter/></span>
-                        <span className="mx-1"><Github/></span>
-                        <span className="mx-1"><Link/></span>
-                        <span className="mx-1"><Location/> Some place </span>
+                    d-flex pt-2 px-0`}>
+                        {data.twitter_username && <span className="mx-1"><Twitter/>{data.twitter_username}</span>}
+                        <a href={data.html_url || '#'}><span className="mx-1"><Github/></span></a>
+                        {data.blog && <a href={`https://${data.blog || `#`}`}><span className="mx-1"><Link/></span></a>}
+                        {data.location && <span className="mx-1"><Location/> {data.location} </span>}
                     </Col>
                 </Col>
             </Row>

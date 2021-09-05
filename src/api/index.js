@@ -31,27 +31,31 @@ const getOrgs = async (nam) => {
   }
 };
 
-const getRepos = async (nam) => {
-  let repo = [];
-  try {
-    const repos = await axios.get(
-      "https://api.github.com/users/" + nam + "/repos"
-    );
-    repos.data.map(async (ele) => {
-      if (!ele.fork) {
-        const lang = await axios.get(ele.languages_url);
-        repo.push({
-          name: ele.full_name,
-          lang: lang.data,
-          stargazer_count: ele.stargazers_count,
-        });
-      }
-    });
+const sortByStar = (a,b) => {
+    if(a.stargazer_count > b.stargazer_count)
+        return -1;
+    else if(a.stargazer_count === b.stargazer_count)
+        return 0;
+    else return 1;
+}
 
-    return repo;
-  } catch (err) {
-    console.log("Repos API call not complete");
-  }
+const getRepos = async (nam) => {
+    let repo=[];
+    try{
+        const repos= await axios.get("https://api.github.com/users/"+nam+"/repos");
+        repos.data.map(async (ele)=>{
+            const lang = await axios.get(ele.languages_url);
+            repo.push({
+                name:ele.full_name,
+                lang: lang.data,
+                stargazer_count:ele.stargazers_count
+            });
+        })
+        return repo.sort(sortByStar);
+    }
+    catch(err){
+      console.log("Repos API call not complete");  
+    }
 };
 
 export { getUsers, getRepos, getOrgs };
