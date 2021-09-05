@@ -1,23 +1,28 @@
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
+import { useState,  useEffect } from "react";
+import React,{useState,useEffect} from "react";
+import { getUsers } from "../../api";
 import Header from "../Header/header";
 import Language from "../Languages/Language";
+import Organisation from '../Organisation/Organisation'
 import Projects from "../Projects/Projects";
-import { getRepos, getUsers } from "../../api";
-import { useState,  useEffect } from "react";
 
 const CV=() => {
-    const {id} =useParams()
-    const [data,setData] = useState(null)
+    const [data, setData] = useState(null)
+    const {id} = useParams();
+    
     useEffect(() => {
         getUsers(id).then(res => {
             setData(res.data)
         }).catch(err => console.log(err))
     }, [id])
+
     return(
         <>
-        <Header/>
-        <Language/>
-        <Projects />
+            <Header data={data}/>
+            <Language/>
+            <Organisation/>
+            <Projects/>
         </>
     )
 }

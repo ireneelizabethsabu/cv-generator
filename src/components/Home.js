@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
-import { useHistory } from "react-router";
 import { getRepos } from "../api";
+import { useHistory } from "react-router-dom";
 
 export const Home = () => {
     const [id,setId]=useState('');
