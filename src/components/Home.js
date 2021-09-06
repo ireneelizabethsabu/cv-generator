@@ -2,7 +2,7 @@ import React, {  useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
 import { useHistory } from "react-router-dom";
-//import {Octocat} from '.octocat.gif';
+import octocat from '../assets/octocat.png';
 
 export const Home = () => {
     const [id,setId]=useState('');
@@ -15,7 +15,10 @@ export const Home = () => {
         <Container fluid className="min-vh-100 home-container">
             
             <Row className="home-row justify-content-center">
-                <Col className="text-center">
+                <Col className="left pr-0 d-none d-lg-block d-flex justify-content-center">
+                    <img src={octocat} width="500px" alt="pic"/>
+                </Col>
+                <Col className="text-center right pl-0">
                 <h1 >CV-GENERATOR</h1>
                 <p className="title gradient-font">
                     Generates CV Based on Github Profile 

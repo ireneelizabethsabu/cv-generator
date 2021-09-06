@@ -1,5 +1,8 @@
-.home-row{ 
+.right{
     padding-top: 150px;
+}
+.left{
+    padding-top: 100px;
 }
 .title {
     font-size: 1.3rem !important;
