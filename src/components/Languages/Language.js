@@ -1,9 +1,9 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, ProgressBar, Row } from 'react-bootstrap'
 import { usePercent } from '../../hooks/usePercent'
 
 const Language = ({ id }) => {
-  const {skills,total} = usePercent(id); 
+  const {skills,total,max} = usePercent(id); 
   
   return (
     <Col>
@@ -13,6 +13,9 @@ const Language = ({ id }) => {
           <Col key={key}>
             <div> {skills[key].lang} {total}</div>
             {/* <img src={`/${skill}.svg`} alt="skill-badge"/> */}
+            <ProgressBar 
+            now={Math.round(skills[key].percent*100/total) }
+            max={max*100/total}/>
           </Col>
         ))}
       </Row>
