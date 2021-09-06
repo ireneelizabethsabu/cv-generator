@@ -21,7 +21,7 @@ export const Home = () => {
                 </Col>
 
                 <Col md={4} className="d-flex justify-content-center">
-                <Form>
+                <Form style={{width: '100%'}}>
                     <Form.Group>
                         <Form.Label className="text-center"> Enter Github user id</Form.Label>
                         <Form.Control 

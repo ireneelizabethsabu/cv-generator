@@ -6,7 +6,7 @@ const Organisation = ({id}) => {
   const {org } = useOrganisation(id);
 
   return (
-    org && (<Col>
+    org.length !== 0 && (<Col>
       <div className="font_m mb-3">
         ORGANISATIONS{" "}
       </div>

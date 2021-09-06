@@ -10,7 +10,7 @@ export const usePercent = (id) => {
         getRepos(id).then(repos => {
             let languages = [];
             var totalMB = 0;
-            repos.data.map(async (repo) => {
+            repos.data.filter(ele => ele.fork === false).map(async (repo) => {
                 const lang = await axios.get(repo.languages_url)
                 if (Object.entries(lang.data).length !== 0) {
                     Object.keys(lang.data).forEach((ele) => {
@@ -24,9 +24,7 @@ export const usePercent = (id) => {
                     });
                 }
             });
-            
             setSkills(languages)
-
         }).catch(err => console.log(err));
     }, [id])
     return {skills,total}
