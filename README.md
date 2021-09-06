@@ -24,3 +24,4 @@ A simple React website to generate cv from your github profile.
 2. [Elsa Maria Joseph](https://github.com/Lza-etc)
 3. [Aishwarya A J](https://github.com/aish2002)
 
+*Do star this repo if you find it useful* 
