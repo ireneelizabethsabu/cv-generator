@@ -16,8 +16,8 @@ const CV=() => {
             <Header data={data}/>
             <Row>
                 <Col>
-                    <Organisation id={id}/>
                     <Language id={id}/>
+                    <Organisation id={id}/>
                 </Col>
                 <Col>
                     <Projects id={id}/>
