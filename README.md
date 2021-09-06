@@ -1,6 +1,8 @@
 # CV-GENERATOR (GITHUB API)
 A simple React website to generate cv from your github profile.
 
+## Preview
+![cv-generator-home](https://user-images.githubusercontent.com/56962523/132256316-ad9d358c-b1f5-4bec-8753-8aad8fc4b549.png)
 ## How it works
 - Go to [CV-Generator Website](https://relaxed-cray-8f7a0c.netlify.app/) 
 - Enter your github username
