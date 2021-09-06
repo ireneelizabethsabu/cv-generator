@@ -55,18 +55,4 @@ const getRepos = async (nam) => {
   }
 };
 
-// export const getOauth = (code) => {
-//   if (code) {
-//     axios.get(`https://github.com/login/oauth/access_token`,{
-//       params: {
-//         code: code,
-//         client_secret: process.env.REACT_APP_CLIENT_SECRET,
-//         client_id: process.env.REACT_APP_CLIENT_ID,
-//         redirect_uri: "http://localhost:3000"
-//       }
-//     }
-//     )
-//       .then(response => response.json())
-//   }
-// }
 export { getUsers, getRepos, getOrgs, sortByStar };

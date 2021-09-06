@@ -1,23 +1,12 @@
-import React, { useState, useEffect } from "react";
-import {Image,Row,Col, Card} from 'react-bootstrap';
-import { getRepos,sortByStar } from "../../api";
+import React from "react";
+import {Col, Card} from 'react-bootstrap';
 import './Projects.css';
 import icon from '../../assets/project.png';
+import { useRepo } from "../../hooks/useRepo";
 
 const Projects = ({id}) => {
-    const [repo,setRepo] = useState([]) 
-    useEffect(() => {
-        getRepos(id).then(res => {
-            let rep = res.data.sort(sortByStar)
-            setRepo(rep.filter((el)=>
-               {
-                return el.fork === false &&
-                el.language !== null
-               }
-            ).slice(0,5))
-        }).catch(err => console.log(err))
-    }, [id])
-
+    const {repo} = useRepo(id)
+    
     return(
         <Col>
         <div className="font_m mb-3">PROJECTS</div>
