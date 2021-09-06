@@ -5,7 +5,6 @@ import axios from 'axios'
 export const usePercent = (id) => {
     const [total, setTotal] = useState(0)
     const [skills, setSkills] = useState([])
-    const [max,setMax] = useState(0)
 
     useEffect(() => {
         getRepos(id).then(repos => {
@@ -25,10 +24,10 @@ export const usePercent = (id) => {
                     });
                 }
             });
+            
             setSkills(languages)
-            setMax(Math.max.apply(Math, skills.map(function(o) { return o.percent; })))
 
         }).catch(err => console.log(err));
-    }, [id,skills])
-    return {skills,total,max}
+    }, [id])
+    return {skills,total}
 }

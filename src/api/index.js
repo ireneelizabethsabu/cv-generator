@@ -55,4 +55,7 @@ const getRepos = async (nam) => {
   }
 };
 
-export { getUsers, getRepos, getOrgs, sortByStar };
+const maxPercent=(skills)=>{
+    return Math.max.apply(Math, skills.map(function(o) { return o.percent; }))
+}
+export { getUsers, getRepos, getOrgs, sortByStar,maxPercent };
