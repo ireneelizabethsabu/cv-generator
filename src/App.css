@@ -1,5 +1,6 @@
-body{
+.App{
     color: "#ffffff" !important;
+    background-color: "#010409" !important;
 }
 .text-color{
     color: "#ffffff" !important;

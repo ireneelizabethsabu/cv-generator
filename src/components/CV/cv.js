@@ -12,7 +12,7 @@ const CV=() => {
     const {data} = useData(id)
     
     return(
-        data && <Container fluid className="my-3">
+        data && <Container  className="my-3">
             <Header data={data}/>
             <Row>
                 <Col>

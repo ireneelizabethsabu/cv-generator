@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
 import { useHistory } from "react-router-dom";
+import octocat from '../assets/octocat.png';
 
 export const Home = () => {
     const [id,setId]=useState('');
@@ -11,34 +12,35 @@ export const Home = () => {
     }
    
     return(
-        <Container fluid >
-            <Row xs={1} sm={1} md={2} className="home-row">
-                <Col className="text-center">
-                <h1 className="title">Get your customized cv with <br /><span id="head">CV-GENERATOR</span></h1>
-                <p className="lead">
+        <Container fluid className="min-vh-100 home-container">
+            
+            <Row className="home-row justify-content-center">
+                <Col className="left pr-0 d-none d-lg-block d-flex justify-content-center">
+                    <img src={octocat} width="500px" alt="pic"/>
+                </Col>
+                <Col className="text-center right pl-0">
+                <h1 >CV-GENERATOR</h1>
+                <p className="title gradient-font">
                     Generates CV Based on Github Profile 
                 </p>
-                </Col>
-
-                <Col md={4} className="d-flex justify-content-center">
-                <Form>
-                    <Form.Group>
-                        <Form.Label className="text-center"> Enter Github user id</Form.Label>
-                        <Form.Control 
-                            className="id" 
-                            type="username" 
-                            placeholder="user-id" 
-                            value={id} 
-                            onChange={handleChange} required/>
-                    </Form.Group>
-                    <Form.Group>
+                <Col className="d-flex justify-content-center">
+                <Form style={{width: "300px"}} >
+                    <Form.Control 
+                        className="username text-center mt-5" 
+                        type="username" 
+                        placeholder="Enter github username" 
+                        value={id} 
+                        onChange={handleChange} required/>
+                    
+                    {/* <Form.Group>
                         <Form.Check type="checkbox" label="Include github avatar"/>
-                    </Form.Group>
-                    <Button variant="outline-dark" type="submit" onClick={() => { history.push(`/cv/${id}`)}}>
+                    </Form.Group> */}
+                    <Button variant="outline-dark gradient-font generate-btn my-4" type="submit" onClick={() => { history.push(`/cv/${id}`)}}>
                         Generate CV
                     </Button>
                 </Form>
                 </Col>
+                </Col>   
             </Row>
         </Container>
     );
