@@ -14,11 +14,12 @@ export const Home = () => {
     return(
         <Container fluid className="min-vh-100 home-container">
             
-            <Row className="home-row justify-content-center">
-                <Col className="left pr-0 d-none d-lg-block d-flex justify-content-center">
-                    <img src={octocat} width="500px" alt="pic"/>
+            <Row className="home-row justify-content-center" md={1} lg={2}>
+                <Col className="left pr-0  d-none d-lg-block octo-img"  lg={4}  >
+                    <img src={octocat} width="550px" height="550px" alt="pic" />
                 </Col>
-                <Col className="text-center right pl-0">
+                <Col className="d-flex justify-content-center py-5 ">
+                <Col  className="text-center right px-0 ">
                 <h1 >CV-GENERATOR</h1>
                 <p className="title gradient-font">
                     Generates CV Based on Github Profile 
@@ -40,7 +41,7 @@ export const Home = () => {
                     </Button>
                 </Form>
                 </Col>
-                </Col>   
+                </Col></Col> 
             </Row>
         </Container>
     );

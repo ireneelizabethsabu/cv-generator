@@ -19,12 +19,22 @@
     background-color: #010409 !important;
 }
 h1 {
-    font-size: 4rem !important;
+    font-size: 4.5rem !important;
     font-weight: 700;
     background: -webkit-linear-gradient( right,#8A2387,#E94057,#F27121);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@media (min-width: 280px) {  
+    h1 {font-size:2.5rem !important;} /*1rem = 16px*/
+    
+}
+@media (min-width: 750px) {  
+    h1 {font-size:4.5rem !important;} /*1rem = 16px*/
+    
+}
+
 .generate-btn,.generate-btn:active,.generate-btn:focus{
     border-radius: 2.5rem !important;
     padding: 0.5rem 4rem !important;
@@ -39,9 +49,9 @@ h1 {
    background-color: #010409 !important;
    border-bottom: 1px solid rgba(255, 255, 255, 0.507) !important;
    border-radius: 0px !important;
+   color: rgb(206, 203, 197) !important;
 }
 .username:focus{
    box-shadow: none !important;
  }
 
-  

@@ -10,16 +10,17 @@ const Organisation = ({id}) => {
       <div className="font_m mb-3">
         ORGANISATIONS{" "}
       </div>
-      <Row className="my-4" sm={8} >
+      <Col className="my-4 px-0" sm={8} >
             {org.map((element,index) => 
-                (<Col key={index}>
-                    <div className="d-flex justify-content-center">
-                      <Image src={element.avatar_url || ''} width="50" height="50" roundedCircle />
-                    </div>
-                    <div className="text-center my-2">{element.login.charAt(0).toUpperCase() + element.login.slice(1)}</div>
-                </Col>)
+                (<Row key={index}>
+                    <Col md="5"className='pb-3'> 
+                    {/* <Col className="d-flex justify-content-center"> */}
+                      <Image src={element.avatar_url || ''} width="40" height="40" roundedCircle />
+                    </Col>
+                    <Col className=" my-2">{element.login.charAt(0).toUpperCase() + element.login.slice(1)}</Col>
+                </Row>)
             )}
-      </Row>
+      </Col>
     </Col>)
   );
 };
