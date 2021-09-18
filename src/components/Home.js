@@ -2,7 +2,6 @@ import React, {  useState } from "react";
 import {Button, Form,Row,Col, Container} from 'react-bootstrap';
 import './Home.css';
 import { useHistory } from "react-router-dom";
-import './animation.css';
 
 export const Home = () => {
     const [id,setId]=useState('');
@@ -13,9 +12,6 @@ export const Home = () => {
    
     return(
         <Container fluid className="min-vh-100 home-container">
-            <div id='stars'></div>
-            <div id='stars2'></div>
-            <div id='stars3'></div>
             <Row className="home-row justify-content-center">
                 <Col className="text-center right pl-0">
                 <h1 >CV-GENERATOR</h1>
