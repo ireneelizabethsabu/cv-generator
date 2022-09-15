@@ -11,50 +11,59 @@ const Header = ({ data }) => {
   const style = {
     color: "#fff",
   };
-  
+  const imgstyle = {
+    color: "#fff",
+    width: "0.35cm",
+
+  }
+
   return (
     data && (
-      <Jumbotron className="px-5 py-5" style={{ backgroundColor: "#000000" }}>
+      <Jumbotron className="px-4 pt-3" style={{ backgroundColor: "#000000", width: "18cm", height: "3cm" }}>
         <Row>
-            <span className="mx-3 my-auto">
-                <Image
-                src={data.avatar_url || ""}
-                width="180px"
-                height="171px"
-                roundedCircle
-                />
-            </span>
-            <Col>
-            <div className={`font_xxl mx-1 text-color ${data.avatar_url === null ? "text-center" : ""}`}
-              style={style} >
-              {data.name || data.login}
-            </div>
-            <Col className={`pt-2 px-0 ${data.avatar_url === null ? "justify-content-center" : ""}`}>
-              {data.twitter_username && (
-                <span className="my-1 " style={style}>
-                  <Twitter />
-                  <span className="ml-2">{data.twitter_username}</span>
-                </span>
-              )}
-              <br/>
-              <span className="my-1" style={style}>
-                <Github />
-                <span className="ml-2">{data.login}</span>
-              </span>
-              <br/>
-              {data.blog && (
-                  <span className="my-1" style={style}>
-                    <Link />
+          <span className="mx-4 mt-2">
+            <Image
+              src={data.avatar_url || ""}
+              width="70px"
+              height="61px"
+              roundedCircle
+            />
+          </span>
+
+          <Col>
+            <Row>
+              <div className={`font_m mt-2 ml-2 mb-1 text-color ${data.avatar_url === null ? "text-center" : ""}`}
+                style={style} >
+                {data.name || data.login}
+              </div>
+            </Row>
+            <Row>
+                {data.login && (
+                  <span className="ml-2 font_xs" style={style}>
+                    <Github style={imgstyle} />
+                    <span className="ml-2">{data.login}</span>
+                  </span>
+                )}
+              
+                {data.twitter_username && (
+                  <span className="ml-1 font_xs " style={style}>
+                    <Twitter style={imgstyle}  />
+                    <span className="ml-2">{data.twitter_username}</span>
+                  </span>
+                )}
+
+                {data.blog && (
+                  <span className=" font_xs" style={style}>
+                    <Link style={imgstyle} />
                     <span className="ml-2">{data.blog}</span>
                   </span>
-              )}
-              <br/>
-              {data.location && (
-                <span className="my-1" style={style}>
-                  <Location /><span className="ml-2"> {data.location}{" "}</span>
-                </span>
-              )}
-            </Col>
+                )}
+                {data.location && (
+                  <span className=" ml-2 font_xs" style={style}>
+                    <Location style={imgstyle} /><span > {data.location}{" "}</span>
+                  </span>
+                )}
+            </Row>
           </Col>
         </Row>
       </Jumbotron>

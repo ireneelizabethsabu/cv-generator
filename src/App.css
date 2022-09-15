@@ -15,11 +15,14 @@
     font-size: 28px !important;
 }
 .font_m{
-    font-size: 24px !important;
+    font-size: 22px !important;
 }
 .font_s{
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 .font_xs{
-    font-size: 14px !important;
+    font-size: 12px !important;
+}
+.font_xxs{
+    font-size: 9px !important;
 }

@@ -7,6 +7,7 @@ export const useData = (id) => {
     useEffect(() => {
         getUsers(id).then(res => {
             setData(res.data)
+            console.log(res.data);
         }).catch(err => console.log(err))
     }, [id])
 

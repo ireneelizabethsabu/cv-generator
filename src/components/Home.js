@@ -27,9 +27,7 @@ export const Home = () => {
                         value={id} 
                         onChange={handleChange} required/>
                     
-                    {/* <Form.Group>
-                        <Form.Check type="checkbox" label="Include github avatar"/>
-                    </Form.Group> */}
+                    
                     <Button variant="outline-dark gradient-font generate-btn my-4" type="submit" onClick={() => { history.push(`/cv/${id}`)}}>
                         Generate CV
                     </Button>
